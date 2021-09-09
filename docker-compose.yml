@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  app:
+    image: debian:buster
+    container_name: app
+    entrypoint: /opt/app.sh
+    volumes:
+      - ./app.sh:/opt/app.sh
+      - pipe:/var/log/pipe:Z
+  
+  sidecar:
+    image: debian:buster
+    container_name: logger
+    entrypoint: /opt/logger.sh
+    volumes:
+      - ./logger.sh:/opt/logger.sh
+      - pipe:/var/log/pipe:Z
+
+volumes:
+  pipe:
