@@ -1,9 +1,9 @@
 # sidecar
-Simple example of usage named pipes between docker containers.
+Simple example of usage named pipes between docker containers. This solution allows to make multiple log streams from single container (e.g. from nginx,php-fpm and your php app).
 
 Just make docker-compose up to bring them up
 
-Console output like this indicates that our simpe app is writing logs to named pipe and logger app on another end of pipe is receiving logs and writing it to container's stdout.
+Console output like this indicates that our simple app is writing logs to named pipe and logger app on another end of pipe (sidecar) is receiving logs and writing it to container's stdout.
 
 ````
 holodilov@parallels-ubuntu:~/namedpipes$ docker-compose up
